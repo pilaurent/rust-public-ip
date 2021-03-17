@@ -31,6 +31,8 @@ use crate::{Resolutions, Version};
 pub const ALL: &dyn crate::Resolver<'static> = &&[
     #[cfg(feature = "ipify-org")]
     HTTP_IPIFY_ORG,
+    #[cfg(feature = "https-ipify-org")]
+    HTTPS_IPIFY_ORG,
     #[cfg(feature = "whatismyipaddress-com")]
     HTTP_WHATISMYIPADDRESS_COM,
 ];
@@ -39,6 +41,12 @@ pub const ALL: &dyn crate::Resolver<'static> = &&[
 #[cfg(feature = "ipify-org")]
 #[cfg_attr(docsrs, doc(cfg(feature = "ipify-org")))]
 pub const HTTP_IPIFY_ORG: &dyn crate::Resolver<'static> =
+    &Resolver::new_static("http://api.ipify.org", ExtractMethod::PlainText);
+
+/// `https://api.ipify.org` HTTPS resolver options
+#[cfg(feature = "https-ipify-org")]
+#[cfg_attr(docsrs, doc(cfg(feature = "https-ipify-org")))]
+pub const HTTPS_IPIFY_ORG: &dyn crate::Resolver<'static> =
     &Resolver::new_static("https://api.ipify.org", ExtractMethod::PlainText);
 
 /// `http://bot.whatismyipaddress.com` HTTP resolver options
