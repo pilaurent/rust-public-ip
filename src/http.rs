@@ -39,7 +39,7 @@ pub const ALL: &dyn crate::Resolver<'static> = &&[
 #[cfg(feature = "ipify-org")]
 #[cfg_attr(docsrs, doc(cfg(feature = "ipify-org")))]
 pub const HTTP_IPIFY_ORG: &dyn crate::Resolver<'static> =
-    &Resolver::new_static("http://api.ipify.org", ExtractMethod::PlainText);
+    &Resolver::new_static("https://api.ipify.org", ExtractMethod::PlainText);
 
 /// `http://bot.whatismyipaddress.com` HTTP resolver options
 #[cfg(feature = "whatismyipaddress-com")]
